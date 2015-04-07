@@ -1,0 +1,150 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>久安门业</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">久安门业</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">图纸</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <section class="container">
+      <div class="col-sm-11 col-sm-offset-1">
+        <table class="table table-bordered" id="doors_info">
+          <thead>
+            <tr>
+              <th width="15%">材料</th>
+              <th width="30%" colspan="3">规格(mm)</th>
+              <th width="15%">吊脚(mm)</th>
+              <th width="20%">类型</th>
+              <th width="10%">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <select name="material" class="form-control">
+                  <option value="0.8">0.8</option>
+                  <option value="1.0">1.0</option>
+                  <option value="1.4">1.4</option>
+                </select>
+              </td>
+              <td>
+                <input type="number" name="size_x" class="form-control" placeholder="900">
+              </td>
+              <td>*</td>
+              <td>
+                <input type="number" name="size_y" class="form-control" placeholder="2000">
+              </td>
+              <td>
+                <input type="number" name="sill" class="form-control" placeholder="15">
+              </td>
+              <td>
+                <select class="form-control" name="type">
+                  <option value="BathroomDoor">卫生间门</option>
+                </select>
+              </td>
+              <td>
+                <button type="button" class="btn btn-danger" onclick="removeDoor(this)" title="删除">
+                  <span class='glyphicon glyphicon-trash' style='color:#fff;'></span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="9">
+                <a href="javascript:addDoor()" class="btn btn-default" id="add_bathroom_door">
+                  <span class='glyphicon glyphicon-plus'></span> 追加
+                </a>
+                <a href="javascript:printDrawing()" class="btn btn-primary" id="print_btn">
+                  <span class='glyphicon glyphicon-print' style='color:#fff;'></span> 打印图纸
+                </a>
+                <a href="javascript:printGlass()" class="btn btn-primary" id="print_btn">
+                  <span class='glyphicon glyphicon-print' style='color:#fff;'></span> 打印玻璃尺寸
+                </a>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section id="print_output">
+      <img id="cover_page_img" src="images/page_1.png" style="display:none">
+      <img id="size_page_img_a" src="images/page_2a.png" style="display:none">
+      <img id="size_page_img_b" src="images/page_2b.png" style="display:none">
+
+      <div class="container" id="print_output_container">
+      </div>
+
+      <script type="draw/template" id="canvas_template" style="display:none">
+        <section>
+          <canvas width="720" height="1040"></canvas>
+        </section>
+      </script>
+
+    </section>
+
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">© 骐浩工贸有限公司 2015</p>
+      </div>
+    </footer>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js(.) scripts/plugins.js -->
+        <script src="../bower_components/bootstrap/js/affix.js"></script>
+        <script src="../bower_components/bootstrap/js/alert.js"></script>
+        <script src="../bower_components/bootstrap/js/dropdown.js"></script>
+        <script src="../bower_components/bootstrap/js/tooltip.js"></script>
+        <script src="../bower_components/bootstrap/js/modal.js"></script>
+        <script src="../bower_components/bootstrap/js/transition.js"></script>
+        <script src="../bower_components/bootstrap/js/button.js"></script>
+        <script src="../bower_components/bootstrap/js/popover.js"></script>
+        <script src="../bower_components/bootstrap/js/carousel.js"></script>
+        <script src="../bower_components/bootstrap/js/scrollspy.js"></script>
+        <script src="../bower_components/bootstrap/js/collapse.js"></script>
+        <script src="../bower_components/bootstrap/js/tab.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <script src="scripts/printer.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
